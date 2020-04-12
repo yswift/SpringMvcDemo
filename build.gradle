@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    mavenCentral()
+}
+
+dependencies {
+    def springVersion = "5.2.5.RELEASE"
+
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // spring
+    implementation "org.springframework:spring-core:${springVersion}"
+    implementation "org.springframework:spring-context:${springVersion}"
+    implementation "org.springframework:spring-web:${springVersion}"
+    implementation "org.springframework:spring-webmvc:${springVersion}"
+    implementation "org.springframework.data:spring-data-jpa:2.1.6.RELEASE"
+
+    // hibernate
+    implementation 'org.hibernate:hibernate-core:5.4.13.Final'
+
+    // log
+    implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.13.1"
+
+    // mysql
+    implementation 'mysql:mysql-connector-java:8.0.15'
+//    implementation 'com.h2database:h2:1.4+'
+
+    // file upload
+    implementation "commons-fileupload:commons-fileupload:1.4"
+    implementation "commons-io:commons-io:2.6"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
